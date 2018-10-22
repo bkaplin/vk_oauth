@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.home),
     url('', include('social_django.urls')),
+    url(r'^logout/$', views.logout),
 )

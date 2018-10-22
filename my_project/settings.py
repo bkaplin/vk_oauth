@@ -111,4 +111,14 @@ TEMPLATES = [
 SOCIAL_AUTH_VK_OAUTH2_KEY = '6725913'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'QlxBohwZTCAJFQVXAi1J'
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
+
+#OAUTH_TOKENS_HISTORY = True # to keep in DB expired access tokens
+#OAUTH_TOKENS_VKONTAKTE_CLIENT_ID = '6725913' # application ID
+#OAUTH_TOKENS_VKONTAKTE_CLIENT_SECRET = 'QlxBohwZTCAJFQVXAi1J' # application secret key
+#OAUTH_TOKENS_VKONTAKTE_SCOPE = ['friends'] # application scopes
+#OAUTH_TOKENS_VKONTAKTE_USERNAME = '' # user login
+#OAUTH_TOKENS_VKONTAKTE_PASSWORD = '' # user password
+#OAUTH_TOKENS_VKONTAKTE_PHONE_END = '' # last 4 digits of user mobile phone
+
+
 LOGIN_REDIRECT_URL = '/'

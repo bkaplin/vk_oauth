@@ -1,2 +1,10 @@
 {% load i18n %}
-<a href="/login/vk-oauth2"><img src="/static/lvk.png" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via VKontakte' %}"></a>
+{% if user and user.is_anonymous  %}
+	<a href="/login/vk-oauth2"><img src="../static/lvk.jpg" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via VKontakte' %}"></a>
+{% else  %}
+	{{ user }}
+	{% for friend in friends %}
+		<br />{{ friend }}<br />
+	{% endfor %}
+	<a href="/logout">Logout</a>
+{% endif %}
