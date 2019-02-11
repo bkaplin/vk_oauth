@@ -1,10 +1,51 @@
-{% load i18n %}
-{% if user and user.is_anonymous  %}
-	<a href="/login/vk-oauth2"><img src="../static/lvk.jpg" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via VKontakte' %}"></a>
-{% else  %}
-	{{ user }}
-	{% for friend in friends %}
-		<br />{{ friend }}<br />
-	{% endfor %}
-	<a href="/logout">Logout</a>
-{% endif %}
+{#{% load i18n %}#}
+{#{% load staticfiles %}#}
+{#{% if user and user.is_anonymous  %}#}
+{#	<a href="/login/vk-oauth2"><button>Login via VKontakte</button>#}
+{#        <img src="{% static "my_project/lvk.jpg" %}" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via VKontakte' %}">#}
+{#    </a>#}
+{#{% else  %}#}
+{#	{{ user }}#}
+{#	{% for friend in friends %}#}
+{#		<br />{{ friend }}<br />#}
+{#	{% endfor %}#}
+{#	<a href="/logout">Logout</a>#}
+{#{% endif %}#}
+
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Boris Kaplin</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="text-center mb-4">
+            <img class="mb-4" src="https://www.shareicon.net/data/128x128/2016/09/23/833261_logo_512x512.png" alt="" width="72" height="72">
+            {% if user and user.is_anonymous  %}
+                <h1 class="h3 mb-3 font-weight-normal">Login via VKontakte</h1>
+                <a href="/login/vk-oauth2">
+                    <button type="button" class="btn btn-primary btn-lg">авторизоваться</button>
+                </a>
+            {% else  %}
+                <div class="jumbotron">
+                    <h1 class="h3 mb-3 font-weight-normal mb-4">Здравствуйте, {{ user }}!</h1>
+                    <ul class="list-group mb-4">
+                        {% for friend in friends %}
+                            <li class="list-group-item list-group-item-info">{{ friend }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="/logout">
+                        <button type="button" class="btn btn-primary btn-lg">выйти</button>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+    </body>
+</html>

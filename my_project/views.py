@@ -11,13 +11,13 @@ def home(request):
 
         session = vk.Session(access_token=token)
         vkapi = vk.API(session)
-        friends_ids = vkapi.friends.get(user_id=uid, v=2, count=5)
-        friends = []
-        for friend_id in friends_ids:
+        friends_ids_list = vkapi.friends.get(user_id=uid, v=2, count=5)
+        friends_list = []
+        for friend_id in friends_ids_list:
             name = vkapi.users.get(user_id=friend_id, v=2)
             name = " ".join([name[0]['first_name'], name[0]['last_name']])
-            friends.append(name)
-        context = {'friends': friends}
+            friends_list.append(name)
+        context = {'friends': friends_list}
     else:
         context = {}
     return render(request, 'home.html', context)

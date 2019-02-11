@@ -88,6 +88,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 TEMPLATES = [
     {
@@ -101,6 +104,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends', # Добавил эту строку
+                'my_project.context_processors.get_settings',
             ],
         },
     },
