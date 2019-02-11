@@ -17,7 +17,9 @@ def home(request):
             name = vkapi.users.get(user_id=friend_id, v=2)
             name = " ".join([name[0]['first_name'], name[0]['last_name']])
             friends_list.append(name)
-        context = {'friends': friends_list}
+        pr = vkapi.users.get(user_id=uid, v=2)
+        username = " ".join([pr[0]['first_name'], pr[0]['last_name']])
+        context = {'friends': friends_list, 'username': username}
     else:
         context = {}
     return render(request, 'home.html', context)
