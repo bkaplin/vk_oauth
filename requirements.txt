@@ -2,7 +2,7 @@ beautifulsoup4==4.6.3
 certifi==2018.10.15
 chardet==3.0.4
 DistributedLock==1.2
-Django==1.9.8
+Django==2.2.24
 django-annoying==0.10.4
 django-picklefield==1.1.0
 django-social-api==0.1.1
